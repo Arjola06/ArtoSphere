@@ -13,10 +13,10 @@ body
 
 /* NAVIGATION BAR */
 /* Prevent clipping and make navbar switch to compact layouts earlier */
-:root { --nav-stack-break: 1200px; --nav-mobile-break: 900px; }
+:root { --nav-stack-break: 1200px;
+     --nav-mobile-break: 900px; } /*Pika e kthimit per mobile */
 
-.navbar {
-  
+.navbar {  
     -webkit-overflow-scrolling: touch;
     gap: 12px;
 }
@@ -95,13 +95,10 @@ body
     top: 0;
     left: 0;
     z-index: 100;
-
     background: transparent;   /* transparent kur eshte në foto */
     border-top: 1px solid rgba(255,255,255,0.3); /*vije e holle siper*/
     border-bottom: 1px solid rgba(255,255,255,0.3 ); /*vije e holle posht*/
-
-    transition: background 0.3s ease, /* Animacion scroll */
-   
+    transition: background 0.3s ease, /* Animacion scroll */   
 }
 
 /* NAVBAR pasi skrollon  */
@@ -309,11 +306,13 @@ body
     animation: fadeEffect 1.5s;
 }
 
+/* Fade animation */
 @keyframes fadeEffect {
     from {opacity: .4}
     to {opacity: 1}
 }
-
+ 
+/* Efekti i hover-it per linket e navbar-it */
 .navbar a:not(.nav-center) {
     padding: 6px 14px;
     border-radius: 4px;
@@ -326,7 +325,8 @@ body
     backdrop-filter: blur(6px);             /* glass effect premium */
     color: #ffb7a5 !important;              /* Gold Rose *//* !important siguron që ngjyra te mos mbivendoset nga CSS të tjera */
 }
-
+ 
+/* Glow effect for slide captions */
 .art-glow {
     opacity: 0;
     transform: translateY(20px);   
@@ -344,6 +344,7 @@ body
     text-shadow: 0 0 0 rgba(0,0,0,0);
 }
 
+ /*Dots indicators*/
 .dots {
     position: absolute;
     bottom: 20px;
