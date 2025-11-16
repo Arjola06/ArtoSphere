@@ -27,12 +27,9 @@ body
 }
 /* keep center title from forcing overflow */
 .nav-center {
-    flex: 0 1 40%;
-    max-width: 60%;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
+    flex: 1;
     text-align: center;
+    white-space: nowrap;
 }
 
 /* Medium screens: stack left/right vertically (no loss of words) */
@@ -103,8 +100,7 @@ body
 
 /* NAVBAR pasi skrollon  */
 .navbar.scrolled {
-    background: rgba(0,0,0,0.85);  
-    backdrop-filter: blur(4px);
+    background: #000000;
 }
 .navbar a {
     text-decoration: none;

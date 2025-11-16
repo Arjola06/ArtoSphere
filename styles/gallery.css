@@ -1,0 +1,565 @@
+/* Gallery Page - Auction Specific Styles */
+/* Global styles are inherited from style.css */
+
+/* ========== AUCTION PAGE STYLES ========== */
+
+.auction-container {
+    margin-top: 100px;
+    padding: 60px 40px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.auction-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.auction-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 72px;
+    font-weight: 900;
+    margin-bottom: 15px;
+    background: linear-gradient(135deg, #ffb7a5 0%, #ffffff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 3px;
+}
+
+.auction-subtitle {
+    font-family: "EB Garamond", serif;
+    font-size: 24px;
+    color: #bbb;
+    font-style: italic;
+}
+
+/* Filter/Sort Controls */
+.auction-controls {
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.filter-group {
+    display: flex;
+    gap: 20px;
+}
+
+.filter-select {
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 16px;
+    font-family: "Nunito Sans", sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.filter-select:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #ffb7a5;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #ffb7a5;
+    box-shadow: 0 0 15px rgba(255, 183, 165, 0.3);
+}
+
+.filter-select option {
+    background: #1a1a1a;
+    color: white;
+}
+
+/* Auction Grid */
+.auction-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.auction-card {
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+.auction-card:hover {
+    transform: translateY(-10px);
+    border-color: #ffb7a5;
+    box-shadow: 0 10px 40px rgba(255, 183, 165, 0.2);
+}
+
+.card-image-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.auction-card:hover .card-image {
+    transform: scale(1.08);
+}
+
+.card-timer {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 183, 165, 0.9);
+    color: black;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    font-family: "Roboto Slab", serif;
+}
+
+.card-content {
+    padding: 25px;
+}
+
+.card-title {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 24px;
+    margin-bottom: 8px;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.card-artist {
+    font-family: "EB Garamond", serif;
+    font-size: 16px;
+    color: #bbb;
+    margin-bottom: 8px;
+    font-style: italic;
+}
+
+.card-details {
+    background: rgba(255, 183, 165, 0.03);
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    border-left: 3px solid rgba(255, 183, 165, 0.2);
+}
+
+.card-detail {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 12px;
+    color: #999;
+    margin: 0;
+    padding: 3px 0;
+    line-height: 1.4;
+}
+
+.card-detail:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    color: #ffb7a5;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+}
+
+.card-category {
+    display: inline-block;
+    font-size: 12px;
+    color: #ffb7a5;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.card-description {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 13px;
+    color: #aaa;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    max-height: 50px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.card-bid-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.current-bid, .bid-count {
+    text-align: center;
+}
+
+.current-bid .label, .bid-count .label {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.current-bid .amount, .bid-count .amount {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffb7a5;
+    font-family: "Roboto Slab", serif;
+}
+
+.view-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #ffb7a5 0%, #ff9984 100%);
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.view-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(255, 183, 165, 0.4);
+}
+
+.view-btn:active {
+    transform: scale(0.98);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background: linear-gradient(135deg, rgba(25, 25, 25, 0.95) 0%, rgba(35, 35, 35, 0.95) 100%);
+    margin: 5% auto;
+    padding: 40px;
+    border: 2px solid rgba(255, 183, 165, 0.3);
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideIn 0.4s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover, .close:focus {
+    color: #ffb7a5;
+}
+
+#modalTitle {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 36px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    letter-spacing: 2px;
+}
+
+.modal-image {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 183, 165, 0.2);
+}
+
+#modalDescription {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 16px;
+    color: #ccc;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.bid-info {
+    background: rgba(255, 183, 165, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    border-left: 4px solid #ffb7a5;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    font-size: 16px;
+}
+
+.info-row:last-child {
+    margin-bottom: 0;
+}
+
+.info-row .label {
+    color: #999;
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.info-row .value {
+    color: #ffb7a5;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Bid Section */
+.bid-section {
+    margin-bottom: 25px;
+}
+
+.bid-section label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #ccc;
+    letter-spacing: 1px;
+}
+
+.bid-section input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 183, 165, 0.2);
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+    font-family: "Nunito Sans", sans-serif;
+}
+
+.bid-section input:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: #ffb7a5;
+    box-shadow: 0 0 15px rgba(255, 183, 165, 0.2);
+}
+
+.bid-button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #ffb7a5 0%, #ff9984 100%);
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: "Roboto Slab", serif;
+}
+
+.bid-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px rgba(255, 183, 165, 0.4);
+}
+
+.bid-button:active {
+    transform: scale(0.98);
+}
+
+/* Bid History */
+.bid-history {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.bid-history h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+#bidHistoryList {
+    list-style: none;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+#bidHistoryList::-webkit-scrollbar {
+    width: 8px;
+}
+
+#bidHistoryList::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+#bidHistoryList::-webkit-scrollbar-thumb {
+    background: rgba(255, 183, 165, 0.4);
+    border-radius: 10px;
+}
+
+#bidHistoryList::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 183, 165, 0.6);
+}
+
+.bid-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    background: rgba(255, 183, 165, 0.05);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border-left: 3px solid rgba(255, 183, 165, 0.3);
+    transition: all 0.3s ease;
+}
+
+.bid-item:hover {
+    background: rgba(255, 183, 165, 0.1);
+    border-left-color: #ffb7a5;
+}
+
+.bid-item .bidder {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.bid-item .bid-amount {
+    font-weight: bold;
+    color: #ffb7a5;
+    font-size: 16px;
+    font-family: "Roboto Slab", serif;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auction-container {
+        padding: 40px 20px;
+        margin-top: 80px;
+    }
+
+    .auction-title {
+        font-size: 48px;
+    }
+
+    .auction-subtitle {
+        font-size: 18px;
+    }
+
+    .auction-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: 20% auto;
+        padding: 25px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    #modalTitle {
+        font-size: 28px;
+    }
+
+    .modal-image {
+        height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+    .auction-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .auction-title {
+        font-size: 36px;
+    }
+
+    .card-bid-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

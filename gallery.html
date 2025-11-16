@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtoSphere</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Momo+Trust+Display&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto+Slab:wght@100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery auction</a>
+            </div>
+            
+            <div class="nav-center">ArtoSphere</a></div>
+
+            <div class="nav-right">
+                <a href="favourites.html">Favourites</a>
+                <a href="cart.html">Shopping cart</a>
+                <a href="about.html">About us</a>
+            </div>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile dropdown (keeps same links & style) -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery auction</a>
+                <a href="favourites.html">Favourites</a>
+                <a href="cart.html">Shopping cart</a>
+                <a href="about.html">About us</a>
+            </nav>
+        </div>
+    </header>
+   
+      <main class="auction-container">
+        <!-- Page Header -->
+        <section class="auction-header">
+            <h1 class="auction-title">Live Auction</h1>
+            <p class="auction-subtitle">Bid on exclusive masterpieces</p>
+        </section>
+
+        <!-- Filter/Sort Section -->
+        <section class="auction-controls">
+            <div class="filter-group">
+                <select id="sortBy" class="filter-select">
+                    <option value="ending-soon">Ending Soon</option>
+                    <option value="newest">Newest</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Auction Grid -->
+        <section class="auction-grid" id="auctionGrid">
+            <!-- Items will be dynamically inserted here -->
+        </section>
+
+        <!-- Bid History Modal -->
+        <div id="bidModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle"></h2>
+                <img id="modalImage" src="" alt="" class="modal-image">
+                <p id="modalDescription"></p>
+                
+                <div class="bid-info">
+                    <div class="info-row">
+                        <span class="label">Current Bid:</span>
+                        <span id="currentBid" class="value"></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Time Remaining:</span>
+                        <span id="timeRemaining" class="value"></span>
+                    </div>
+                    <div class="info-row">
+                        <span class="label">Number of Bids:</span>
+                        <span id="bidCount" class="value"></span>
+                    </div>
+                </div>
+
+                <div class="bid-section">
+                    <label for="bidAmount">Place Your Bid:</label>
+                    <input type="number" id="bidAmount" placeholder="Enter amount" min="0" step="10">
+                    <button class="bid-button" onclick="placeBid()">Place Bid</button>
+                </div>
+
+                <div class="bid-history">
+                    <h3>Bid History</h3>
+                    <ul id="bidHistoryList"></ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/gallery.js"></script>
+</body>
+</html>

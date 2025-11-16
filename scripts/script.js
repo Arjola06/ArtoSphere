@@ -83,6 +83,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobileMenu');
     const navLinks = Array.from(document.querySelectorAll('.navbar a:not(.nav-center)'));
     const mobileLinks = mobileMenu ? Array.from(mobileMenu.querySelectorAll('a')) : [];
+    const navbar = document.querySelector('.navbar');
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
 
     function closeMobile() {
         if (!hamburger || !mobileMenu) return;
