@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtoSphere</title>
+    <link rel="stylesheet" href="styles/style.css" >
+     <link rel="stylesheet"  href="styles/about.css">
+   
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Momo+Trust+Display&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto+Slab:wght@100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery auction</a>
+            </div>
+            
+            <div class="nav-center">ArtoSphere</div>
+
+            <div class="nav-right">
+                <a href="favourites.html">Favourites</a>
+                <a href="cart.html">Shopping cart</a>
+                <a href="about.html" class="active">About us</a>
+            </div>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile dropdown (keeps same links & style) -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery auction</a>
+                <a href="favourites.html">Favourites</a>
+                <a href="cart.html" >Shopping cart</a>
+                <a href="about.html" class="active">About us</a>
+            </nav>
+        </div>
+    </header>
+         <div class="header-bg">
+            <img src="c:\Users\User\Downloads\abou.jfif" alt="Header Image" class="header-image">
+            <div class="center-content">
+                <h1>About us</h1>
+                <p>Home / About us </p>
+            </div>
+        </div>
+        <!-- About Section -->
+<section class="about-section">
+<div class="about-text">
+<h2>About ArtoSphere</h2>
+<p>
+ArtoSphere is a contemporary art gallery dedicated to showcasing emerging
+and established artists from around the world. Our mission is to create an
+inspiring environment where creativity, culture, and artistic expression
+come together through exhibitions, auctions, and interactive community events.
+</p>
+
+
+<p>
+We feature a curated collection of paintings, digital artworks, sculptures,
+and mixed‑media pieces crafted to spark imagination and inspire visitors.
+At ArtoSphere, we believe that art connects people and brings new perspectives
+to everyday life.
+</p>
+
+
+<p><strong>Phone:</strong> +355 69 123 4567</p>
+<p><strong>Email:</strong> support@artosphere.com</p>
+</div>
+
+
+<!-- Contact form -->
+<div class="contact-box">
+<h3>Contact Us</h3>
+
+
+<form class="contact-form">
+<label>Name</label>
+<input type="text" placeholder="Your name" required>
+
+
+<label>Email</label>
+<input type="email" placeholder="Your email" required>
+
+
+<label>Your Question</label>
+<textarea placeholder="Write your message..." required></textarea>
+
+
+<button type="submit">Send Message</button>
+</form>
+</div>
+</section>
+
+        <script src="scripts/script.js"></script>
+        <script src="scripts/about.js"></script>
+
+    </body>
+
+</html>
