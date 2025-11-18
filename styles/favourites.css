@@ -1,0 +1,756 @@
+/* RESET */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #f7e9d3;
+  font-family: "Playfair Display", serif;
+}
+
+/* HERO IMAGE */
+.hero-collection {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+}
+
+.hero-collection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-collection h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #e7d1a2;
+    font-size: 3.5rem;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+    font-family: "Playfair Display", serif;
+}
+
+.text-over-image{
+    position: absolute;
+    top: 80%;
+    left: 50%;
+  transform: translate(-50%,-50%);
+    color: #e7d1a2;
+    text-align: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 300%;
+    text-shadow: 2px 2px 5px rgba(247, 244, 244, 0.7);
+ font-weight: bold;
+}
+/* NAVIGATION BAR */
+/* Prevent clipping and make navbar switch to compact layouts earlier */
+:root { --nav-stack-break: 1200px;
+     --nav-mobile-break: 900px; } /*Pika e kthimit per mobile */
+
+.navbar {  
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+}
+.nav-left, .nav-right {
+    min-width: 0;     /* permit flex children to shrink */
+    flex-shrink: 1;
+    white-space: nowrap;
+}
+/* keep center title from forcing overflow */
+.nav-center {
+    flex: 1;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* Medium screens: stack left/right vertically (no loss of words) */
+@media (max-width: 1200px) and (min-width: 901px) {
+    .nav-left, .nav-right {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        align-items: flex-start;
+        max-width: 28%;
+    }
+    .hamburger { display: none; } /* keep links visible for medium view */
+    .navbar { padding: 12px 20px; }
+    .navbar a { font-size: 18px; margin: 4px 8px; }
+    .nav-center { font-size: 30px; }
+}
+
+/* Small screens / zoom-out fallback: show hamburger (compact mobile) */
+@media (max-width: 900px) {
+    .nav-left, .nav-right { display: none; }
+    .hamburger { display: flex; }
+    .navbar { padding: 12px 16px; }
+    .nav-center { font-size: 28px; }
+}
+/* Tablet: Stack vertically BEFORE words crash */
+@media (max-width: 1300px) {
+    .navbar {
+        padding: 12px 30px;
+    }
+    .nav-left, .nav-right {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+    .navbar a {
+        font-size: 16px;
+        margin: 0;
+    }
+    .nav-center {
+        font-size: 28px;
+    }
+    .hamburger { display: none; }
+}
+
+/* Mobile: Show hamburger menu */
+@media (max-width: 900px) {
+    .nav-left, .nav-right { display: none; }
+    .hamburger { display: flex; }
+    .navbar { padding: 12px 16px; }
+    .nav-center { font-size: 26px; }
+}
+
+.navbar {
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: transparent;   /* transparent kur eshte në foto */
+    border-top: 1px solid rgba(255,255,255,0.3); /*vije e holle siper*/
+    border-bottom: 1px solid rgba(255,255,255,0.3 ); /*vije e holle posht*/
+    transition: background 0.3s ease, /* Animacion scroll */   
+}
+
+/* NAVBAR pasi skrollon  */
+.navbar.scrolled{
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+.navbar a {
+    text-decoration: none;
+    color: #f5f5f5;
+    margin: 0 15px;
+    font-size: 20px;
+    font-family: "Roboto Slab", serif;   
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+
+}
+.navbar a:not(.nav-center):active,
+.navbar a:not(.nav-center).active {
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(6px);
+    color: #ffb7a5 !important;
+    box-shadow: 0 6px 18px rgba(255, 183, 165, 0.12);
+    transform: translateY(-1px);
+}
+
+.nav-center {
+    font-size: 35px;
+    font-weight: bold;
+    color: #fff;
+    font-family: "Momo Trust Display", sans-serif;
+    flex: 0 1 auto;
+    white-space: nowrap;
+}
+ 
+.nav-left, .nav-right {
+    display: flex;
+    gap: 20px;
+}
+
+/* Mobile hamburger and dropdown */
+.hamburger {
+    display: none;
+    background: rgba(255,255,255,0.06);
+    border: 2px solid rgba(255,255,255,0.12);
+    width: 50px;
+    height: 46px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    cursor: pointer;
+    gap: 6px;
+    flex-direction: column;
+    padding: 6px;
+    transition: all 0.25s ease;
+    backdrop-filter: blur(6px);
+    color: #fff;
+}
+.hamburger .bar {
+    width: 22px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.hamburger.open { background: rgba(255,255,255,0.18); 
+    color:#ffb7a5; 
+    transform: translateY(-1px); }
+
+/* mobile dropdown container */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 74px; /* below navbar */
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.842);
+    backdrop-filter: blur(8px);
+    padding: 18px 20px;
+    z-index: 999;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+}
+.mobile-menu.open { display: block; }
+.mobile-menu nav { display: flex; flex-direction: column; gap: 12px; }
+.mobile-menu a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 6px;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background 0.18s ease, color 0.18s ease;
+}
+.mobile-menu a:hover,
+.mobile-menu a.active {
+    background: rgba(255,255,255,0.06);
+    color: #ffb7a5 !important;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .nav-left, .nav-right { display: none; }
+    .hamburger { display: flex; }
+    .nav-center { font-size: 28px; } /* keep center visible */
+    .navbar {
+        padding: 14px 18px;
+    }
+    /* ensure arrows/dots not covered by menu when open */
+    .mobile-menu + .slideshow-container { margin-top: 0; }
+}
+/* Efekti i hover-it per linket e navbar-it */
+.navbar a:not(.nav-center) {
+    padding: 6px 14px;
+    border-radius: 4px;
+    transition: all 0.25s ease;
+}
+
+/* Efekti kur kalon maus-in siper ketyre linkeve te navbar-it */
+.navbar a:not(.nav-center):hover {
+    background: rgba(255, 255, 255, 0.18);  /* e bardhë transparente */
+    backdrop-filter: blur(6px);             /* glass effect premium */
+    color: #ffb7a5 !important;              /* Gold Rose *//* !important siguron që ngjyra te mos mbivendoset nga CSS të tjera */
+}
+/* Hide scrollbar track but keep scrolling functionality */
+::-webkit-scrollbar {
+    width: 0;  /* hide scrollbar width */
+}
+/* NAV IMMMMMMM*/
+body {
+  font-family: 'Playfair Display', serif;
+  background: #f7e9d3;
+}
+.nav{
+     display: flex;
+     width: 100%;
+     flex-wrap: wrap;/*Kur ekrani ngushtohet, linkët kalojnë në rreshtin tjetër në vend që të dalin jashtë faqes.*/
+     padding: 14px 0;
+     left: 0;
+     justify-content: space-around;
+       border-bottom: 1px solid #e8e8e8;
+     gap: 10px;
+     align-items: center;
+     background: #e9d9b5; /*bg i nav*/ 
+    font-family:  "Roboto Slab", serif;
+     
+}
+.nav a{
+    text-decoration: none;
+    color:  #8C7A5B;/*teksti*/
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    transition: 0.3 ease;
+    position: relative;
+    white-space: nowrap;/* mos i le linqet të ndahen në mes */
+
+}
+.nav a::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+  height: 1.5px;
+  background: #C5A46E;/*underline*/
+  transition: 0.3s ease;
+}
+.nav a:hover::after {
+  width: 100%;
+}
+.nav a:hover {
+  color: #5E5033;/*teksti ne hover*/
+}
+.imgage-container{
+    position: relative;
+    display: inline-block;
+}
+.imgage-container img{
+     width: 100%;
+  height: auto;
+}
+.nav a.is-active,
+.dropdown-menu a.is-active {
+  color: #5E5033;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.dropdown{
+    position: relative;
+    display: inline-block;
+}
+/*per te fshehur listen*/
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    font-family:"Roboto Slab", serif ;
+    margin: 0px ;
+    padding:  0;
+    list-style: none;
+    background: #f7ebd9;
+    border: 3px solid #e2d0b2;
+    z-index: 1000;
+  
+top: auto;
+}
+.dropdown-menu a  {
+      display: block;
+      padding: 0;
+      color: #a27f65;
+      text-decoration: none;
+     
+}
+.dropdown:hover .dropdown-menu{
+    display: block;
+}
+/* PHOTOS */
+.card-container{
+  max-width: 1200px;
+  margin: 30px auto 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-auto-rows: 220px;
+  grid-auto-flow: dense;
+  gap: 36px;              
+  padding: 0 24px;        
+}
+/* karta bazë */
+.photo-card{
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+/* Karta Maestà */
+.maesta-card{
+  height: 240px;
+}
+.maesta-card .thumb img{
+  object-fit: cover;
+  object-position: top;
+}
+
+.liberty-card .thumb img {
+    object-fit: cover;
+    object-position: top;
+}
+.g-card{
+  object-position: center;
+}
+
+.card-tall{
+  grid-row: span 2;
+}
+.card-wide{
+  grid-column: span 2;
+}
+/* THUMB & OVERLAY */
+.thumb{
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform .4s ease;
+}
+.photo-card:hover .thumb img{
+  transform: scale(1.06);
+}
+.overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .25s ease, transform .25s ease;
+  transform: translateY(6px);
+  z-index: 1; 
+}
+.photo-card:hover .overlay{
+  opacity: 1;
+  transform: translateY(0);
+}
+.view-text{
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.25);
+  color: #f9c679;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.card-body{
+  padding-top: 8px;
+}
+.card-title{
+  font-size: 1.00rem;
+  color:#5E5033;
+  margin-bottom: 4px;
+}
+.card-category{
+  font-size: 0.9rem;
+  color:#5E5033;
+}
+@media (max-width: 768px){
+  .image-container{
+    height: 260px;
+  }
+  .text-over-image{
+    font-size: 32px;
+  }
+  .card-container{
+    grid-template-columns: 1fr;
+    grid-auto-rows: 260px;
+  }
+}
+body.category-view .card-container{
+  max-width: 900px;
+  margin: 32px auto 40px;
+  padding: 0 24px;
+  display: flex;          
+  flex-direction: column;    
+  gap: 28px;
+}
+body.category-view .photo-card{
+  max-width: 800px;
+  margin: 0 auto;
+}
+body.category-view .photo-card .thumb{
+  height: auto;
+}
+
+body.category-view .photo-card .thumb img{
+  width: 100%;
+  height: auto;             
+  object-fit: contain;       
+  object-position: center;    
+}
+
+body.category-view .overlay{
+  display: none;
+}
+body.category-view .photo-card:hover .thumb img{
+  transform: none;
+}
+body.category-view .card-container{
+  max-width: 1100px;
+  margin: 32px auto 50px;
+  padding: 0 24px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-auto-rows: auto;
+  gap: 32px;
+}
+body.category-view .photo-card{
+  border-radius: 8px;
+}
+body.category-view .photo-card .thumb{
+  height: 230px;
+}
+body.category-view .photo-card .thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+body.category-view .overlay{
+  display: flex;
+}
+body.category-view .photo-card:hover .thumb img{
+  transform: scale(1.03);
+}
+body.category-view .card-body{
+  padding-top: 6px;
+}
+.art-modal{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.art-modal.is-open{
+  display: flex;
+}
+
+.art-modal__inner{
+  background: #f6ebd5;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 10px;
+  padding: 28px 32px 32px;
+  position: relative;
+}
+
+.art-modal__close{
+  position: absolute;
+  top: 14px;
+  right: 20px;
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #5E5033;
+}
+
+.art-modal__content{
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 25px;
+}
+
+.art-modal__image-wrap img{
+  width: 100%;
+  border-radius: 6px;
+}
+
+.art-modal__title{
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 6px;
+  color: #5E5033;
+}
+
+.art-modal__period{
+  color: #7a6a55;
+  margin-bottom: 15px;
+}
+
+.art-modal__meta-list dt{
+  font-weight: bold;
+  width: 120px;
+}
+
+.art-modal__meta-list dd{
+  margin: 0 0 6px 0;
+}
+
+.art-modal__text{
+  margin-top: 20px;
+  line-height: 1.5;
+  color: #5E5033;
+}
+
+@media(max-width: 900px){
+  .art-modal__content{
+    grid-template-columns: 1fr;
+  }
+}
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  padding: 20px;
+}
+
+#lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-content {
+  background: #fff;
+  color: #333;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+#lbClose {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+#lbImage {
+  width: 100%;
+  display: block;
+}
+
+.lb-info {
+  padding: 20px;
+}
+/* Butonat e ikonave (zemra + shporta) */
+.icon-btn {
+  background: #f4e3c4;
+  border: 1px solid #d2b890;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-left: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  color: #5E5033;
+  transition: background 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: #e4cfaa;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.icon-btn.is-active {
+  background: #c58b6a;
+  color: #fff;
+}
+
+/* Ikonat në të djathtë poshtë fotos në kartë */
+.card-actions {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  display: flex;
+  flex-direction: row;  
+  gap: 6px;
+  z-index: 5;
+}
+
+/* Bëjmë kartën container për pozicionim absolut */
+.photo-card {
+  position: relative;
+}
+
+/* Titulli i kartës me zemrën në të djathtë */
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+/* Ikonat te titulli i modal-it */
+.art-modal__header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.art-modal__actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Mobile: single column photos stacked vertically */
+@media (max-width: 768px) {
+  /* Make card container a single column and let rows size to content */
+  .card-container{
+    grid-template-columns: 1fr !important;   /* one column */
+    grid-auto-rows: auto !important;         /* rows grow with content */
+    gap: 20px;                               /* comfortable spacing */
+    padding: 0 16px;
+    max-width: 100%;
+  }
+
+  /* Ensure individual cards and thumbs size naturally */
+  .photo-card,
+  .photo-card .thumb {
+    width: 100%;
+    height: auto !important;
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
+
+  /* Images fill card width and maintain aspect */
+  .thumb img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Remove tall/wide spans so nothing forces multiple grid rows/cols */
+  .card-tall, .card-wide {
+    grid-row: auto !important;
+    grid-column: auto !important;
+  }
+
+  /* Adjust overlay and view button spacing */
+  .overlay {
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Modal/lightbox adjustments on small screens */
+  .art-modal__content {
+    grid-template-columns: 1fr;
+  }
+}
+.navbar.scrolled{
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}

@@ -137,7 +137,7 @@ body{
 /* NAVBAR pasi skrollon  */
 .navbar.scrolled{
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
 }
 .navbar a {
     text-decoration: none;
@@ -366,6 +366,7 @@ top: auto;
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 /* Karta Maestà */
 .maesta-card{
@@ -381,7 +382,6 @@ top: auto;
     object-position: top;
 }
 .g-card{
-
   object-position: center;
 }
 
@@ -397,11 +397,17 @@ top: auto;
   overflow: hidden;
   border-radius: 6px;
   flex: 1 1 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .thumb img{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   display: block;
   transition: transform .4s ease;
 }
@@ -743,4 +749,92 @@ body.category-view .card-body{
   .art-modal__content {
     grid-template-columns: 1fr;
   }
+}
+
+/* Full-width grid for favorites page */
+.favorites-grid {
+  max-width: 100%;
+  margin: 30px auto 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.favorites-grid .photo-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.favorites-grid .thumb {
+  flex: 0 0 240px;
+  height: 240px;
+  min-width: 240px;
+}
+
+.favorites-grid .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.favorites-grid .card-body {
+  flex: 1;
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.favorites-grid .card-title {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.favorites-grid .card-sub {
+  font-size: 1rem;
+  color: #7a6a55;
+  margin-bottom: 12px;
+}
+
+.favorites-grid .card-actions {
+  position: static;
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+@media (max-width: 768px) {
+  .favorites-grid {
+    padding: 0 16px;
+  }
+
+  .favorites-grid .photo-card {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .favorites-grid .thumb {
+    flex: 1;
+    height: 260px;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .favorites-grid .card-body {
+    padding: 16px;
+  }
+
+  .favorites-grid .card-title {
+    font-size: 1.1rem;
+  }
+}
+.navbar.scrolled{
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
 }

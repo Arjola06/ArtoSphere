@@ -153,3 +153,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     setActiveByPath();
 });
+// ...existing code...
+
+// Add to Cart functionality for collection page
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.add-to-cart-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const product = {
+                name: btn.getAttribute('data-name'),
+                artist: btn.getAttribute('data-artist'),
+                price: btn.getAttribute('data-price'),
+                image: btn.getAttribute('data-image'),
+                id: Date.now()
+            };
+
+            // Get existing cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('artoSphereCart')) || [];
+            
+            // Add new product to cart
+            cart.push(product);
+            
+            // Save updated cart to localStorage
+            localStorage.setItem('artoSphereCart', JSON.stringify(cart));
+            
+            // Show confirmation
+            alert(`${product.name} added to cart!`);
+        });
+    });
+});

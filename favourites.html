@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Favourites — ArtoSphere</title>
+
+  <link rel="stylesheet" href="styles/about.css">
+
+
+        <link rel="stylesheet" href="styles/collection.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Momo+Trust+Display&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto+Slab:wght@100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+
+
+</head>
+<body>
+   <!--Navigation bar-->
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery auction</a>
+            </div>
+            
+            <div class="nav-center">ArtoSphere</div>
+
+            <div class="nav-right">
+                <a href="favourites.html">Favourites</a>
+                <a href="cart.html">Shopping cart</a>
+                <a href="about.html" class="active">About us</a>
+            </div>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+        <!-- Mobile dropdown (keeps same links & style) -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery auction</a>
+                <a href="favourites.html">Favourites</a>
+                <a href="cart.html" >Shopping cart</a>
+                <a href="about.html" class="active">About us</a>
+            </nav>
+        </div>
+    </header>
+         <div class="header-bg">
+            <img src="img/navphoto.jpg" alt="Header Image" class="header-image">
+            <div class="center-content">
+                <h1>Favourites</h1>
+                <p>Home / Favourites</p>
+            </div>
+        </div>
+  <main class="container collection-main">
+
+
+    <section id="favoritesGrid" class="favorites-grid" aria-live="polite">
+      <!-- favorite cards rendered by scripts/favorites.js -->
+    </section>
+  </main>
+
+  <script src="scripts/script.js"></script>
+  <script src="scripts/collection.js"></script>
+  <script src="scripts/favorites.js" defer></script>
+</body>
+</html>

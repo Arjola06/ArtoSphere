@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtoSphere - Shopping Cart</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/cart.css">
+   
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Momo+Trust+Display&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto+Slab:wght@100..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <header>
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery auction</a>
+            </div>
+            
+            <div class="nav-center">ArtoSphere</div>
+
+            <div class="nav-right">
+                <a href="favourites.html">Favourites</a>
+                <a href="cart.html" class="active">Shopping cart</a>
+                <a href="about.html">About us</a>
+            </div>
+
+            <!-- Hamburger for mobile -->
+            <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+
+        <!-- Mobile dropdown (keeps same links & style) -->
+        <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="collection.html">Collection</a>
+                <a href="gallery.html">Gallery auction</a>
+                <a href="favourites.html">Favourites</a>
+                <a href="cart.html" class="active">Shopping cart</a>
+                <a href="about.html">About us</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="header-bg">
+        <img src="img/navphoto.jpg" alt="Header Image" class="header-image">
+        <div class="center-content">
+            <h1>Shopping cart</h1>
+            <p>Home / Shopping cart</p>
+        </div>
+    </div>
+
+    <!-- Two Column Layout: Cart Items (Left) + Checkout (Right) -->
+    <div class="cart-checkout-wrapper">
+        <!-- Left Side: Cart Items -->
+        <div class="cart-items-section">
+            <h2>Your Cart Items</h2>
+            <div id="cartItemsList" class="cart-items-list">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+            <div class="cart-summary">
+                <h3>Total: $<span id="cartTotal">0</span></h3>
+            </div>
+        </div>
+
+        <!-- Right Side: Checkout Form -->
+        <div class="checkout-section">
+            <div class="checkout-form">
+                <h2>Checkout</h2>
+                <form id="formCheckout">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="surname">Surname</label>
+                    <input type="text" id="surname" name="surname" required>
+
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" required>
+
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="city">City</label>
+                    <input type="text" id="city" name="city" required>
+
+                    <label for="payment">Payment Methods</label>
+                    <select id="payment" name="payment" required>
+                        <option value="">Choose</option>
+                        <option value="cash">Cash</option>
+                        <option value="credit">Credit Card</option>
+                    </select>
+
+                    <div class="payment-details" id="creditCardDetails" style="display:none;">
+                        <label for="cardNumber">Card Number</label>
+                        <input type="text" id="cardNumber" name="cardNumber" pattern="[0-9]{13,16}" placeholder="1234 5678 9012 3456">
+                        
+                        <label for="expDate">Expiration Date</label>
+                        <input type="month" id="expDate" name="expDate">
+
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" pattern="[0-9]{3,4}" placeholder="123">
+                    </div>
+
+                    <button type="submit" class="order-btn">Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/cart.js"></script>
+</body>
+</html>
